@@ -1,14 +1,17 @@
 import React from 'react'
 import styled, { keyframes } from 'styled-components';
+import { useWindowSize } from '../../utils/useWindow';
 
 function Orb() {
+
+    const { width, height } = useWindowSize();
 
     const moveOrb = keyframes`
     0% {
     transform: translate(0, 0);
     } 
     50% {
-    transform: translate(400px, 500px);
+    transform: translate(${width / 1.2}px, ${height / 2}px);
      }
     100% {
     transform: translate(0, 0);
@@ -22,9 +25,9 @@ function Orb() {
     border-radius: 50%;
     margin-left: -37vh;
     margin-top: -37vh;
-    background: linear-gradient(180deg. #F56692 0%, #F2994A 100%);
-    filter: blur(400px);
-    animation: ${moveOrb} 15s alternate linear infinite;
+    background: linear-gradient(180deg, #8360c3 0%, #2ebf91 100%);
+    filter: blur(350px);
+    animation: ${moveOrb} 10s alternate linear infinite;
     `;
     return (
         <OrbStyled></OrbStyled>
